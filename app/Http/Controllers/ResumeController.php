@@ -32,9 +32,9 @@ class ResumeController extends Controller {
     }
 
     public function create() {
-        $resume = json_encode(Resume::factory()->make());
-        return view('resumes/create', compact('resume'));
-//        return view('resumes/create');
+//        $resume = json_encode(Resume::factory()->make());
+//        return view('resumes/create', compact('resume'));
+        return view('resumes/create');
     }
 
     public function store(StoreResume $request) {

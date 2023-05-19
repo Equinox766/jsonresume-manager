@@ -58,13 +58,13 @@ class StoreResume extends FormRequest {
             'content.education.*.area' => 'string',
             'content.education.*.startDate' => 'date',
             'content.education.*.endDate' => 'date',
-            'content.education.*.gpa' => 'string',
+            //'content.education.*.gpa' => 'string',
             'content.education.*courses' => 'array',
             'content.education.*courses.*' => 'string',
 
             'content.awards' => 'array',
             'content.awards.*.title' => 'string',
-            'content.awards.*.date' => 'date',
+            //'content.awards.*.date' => 'date',
             'content.awards.*.awarder' => 'string',
             'content.awards.*.summary' => 'string',
 

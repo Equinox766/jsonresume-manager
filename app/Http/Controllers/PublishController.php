@@ -51,11 +51,11 @@ class PublishController extends Controller {
         if (auth()->user()->id !== $resume->user_id) {
             abort(Response::HTTP_FORBIDDEN);
         }
-
         return $this->render($resume, $theme);
     }
 
     private function render(Resume $resume, Theme $theme) {
+
         $response = Http::post("{$this->jsonResumeAPi}/theme/{$theme->theme}", [
             'resume' => $resume->content,
         ]);

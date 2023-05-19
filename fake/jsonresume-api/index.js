@@ -6,7 +6,25 @@ app.use(cors());
 app.use(bodyParser.json());
 const port = process.env.PORT || 8081;
 
-const themes = ["classy", "kendall", "ravgift", "standard-resume"];
+const themes = [
+    "classy",
+    "kendall",
+    "ravgift",
+    "standard-resume",
+    "eloquent-mod",
+    "a11y",
+    "vp",
+    "el-santo",
+    "flat-revised",
+    "short-extended",
+    "kendall-herink",
+    "one",
+    "stackoverflow-ibic",
+    "autumn-pathify",
+    "samk",
+    "mooser",
+    "business-professional-compact",
+];
 
 app.get("/", (req, res) => {
   res.send("json resume render api");
@@ -16,18 +34,18 @@ app.get("/themes", (req, res) => {
   res.json(themes);
 });
 
-app.post("/theme/:theme", (req, res) => {
+app.post("/theme/:theme", async (req, res) =>  {
   const json = req.body.resume;
-  const theme = req.params.theme;
+   const theme = req.params.theme;
   if (! theme in themes) {
-    return res.status(400).json({ error: "Theme not found" });
+     return res.status(400).json({ error: "Theme not found" });
   };
-  const render = require(`jsonresume-theme-${theme}`).render;
+  const render = await require(`jsonresume-theme-${theme}`).render;
 
   console.log(json)
   res.send(render(json));
 });
 
 app.listen(port, () => {
-  console.log("Running on port", port);
+  console.log("Running on port: //", port);
 });
